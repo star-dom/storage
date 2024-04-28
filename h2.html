@@ -1,0 +1,31 @@
+<style>
+   @font-face {
+    font-family: Objects Sans Slanted; /* Имя шрифта */
+    src: url('https://raw.githubusercontent.com/star-dom/storage/hours/ObjectSans-HeavySlanted.ttf'); /* Путь к файлу со шрифтом */
+   }
+</style>
+<div style="width: 1920px; height: 1080px; align-items: center; display: flex; justify-content: center;"><div id="timeNow" style="color: #000; font-family: 'Objects Sans Slanted'; font-size: 100px; text-align: center;"></div></div>
+<script>
+function checkTime(i) {
+  if (i < 10) {
+    i = "0" + i;
+  }
+  return i;
+}
+
+function timeBegan() {
+  var today = new Date();
+  var h = today.getHours();
+  var m = today.getMinutes();
+  var s = today.getSeconds();
+
+  h = checkTime(h);
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('timeNow').innerHTML = h + ":" + m + ":" + s;
+  t = setTimeout(function() {
+    timeBegan()
+  }, 1);
+}
+timeBegan();
+</script>
