@@ -1,4 +1,4 @@
-<div style="width: 1920px; height: 1080px; background: #fff; position: relative; overflow: hidden; text-align: center; display: flex; align-items: center; justify-content: center;"><div style="position: relative;"><div style="top: 0; left: 0;"><image src="https://raw.githubusercontent.com/star-dom/storage/hours/h.png" style="width: 920px; height: 920PX; position: relative; position: absolute; filter: invert(100%);" id="hours"><image src="https://raw.githubusercontent.com/star-dom/storage/hours/m.png" style="width: 920px; height: 920PX; position: relative; position: absolute; filter: invert(100%);" id="minutes"><image src="https://raw.githubusercontent.com/star-dom/storage/hours/s.png" style="width: 920px; height: 920PX; position: absolute; position: relative; filter: invert(100%);" id="seconds"></div></div></div>
+<div style="width: 1920px; height: 1080px; background: #fff; position: relative; overflow: hidden; text-align: center; display: flex; align-items: center; justify-content: center;"><audio src="0419(2).MP3" loop id="muzyka" type="audio/mpeg"></audio><div style="position: relative;"><div style="top: 0; left: 0;"><image src="https://raw.githubusercontent.com/star-dom/storage/hours/h.png" style="width: 920px; height: 920PX; position: relative; position: absolute; filter: invert(100%);" id="hours"><image src="https://raw.githubusercontent.com/star-dom/storage/hours/m.png" style="width: 920px; height: 920PX; position: relative; position: absolute; filter: invert(100%);" id="minutes"><image src="https://raw.githubusercontent.com/star-dom/storage/hours/s.png" style="width: 920px; height: 920PX; position: absolute; position: relative; filter: invert(100%);" id="seconds"></div></div></div>
   <script>
     function checkTime(i) {
   if (i < 10) {
@@ -42,4 +42,11 @@ setInterval(seconds1, 1);
  function seconds1() {
 seconds.style.transform = `rotate(${6 * new Date().getSeconds()}deg`;  
 }
+    function checkMuzyka() {
+  if (new Date().getSeconds() === 0) {
+     document.getElementById('muzyka').play();
+  }
+}
+
+setInterval(checkMuzyka, 1); // Вызывать функцию checkSeconds каждую секундуs
   </script>
