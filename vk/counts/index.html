@@ -1,0 +1,51 @@
+<style>
+   @font-face {
+    font-family: osn; /* Имя шрифта */
+    src: url('https://raw.githubusercontent.com/star-dom/storage/main/fonts/PFSquareSansPro-Regular.ttf'); /* Путь к файлу со шрифтом */
+   }
+  p {
+    font-family: osn;
+  }
+</style>
+<div style="width: 1440px; height: 1080px; background: #fff; position: relative;" id="myData"><p style="position: absolute; bottom: 0; margin-left: 20px; color: #FFFFFF;
+	text-shadow: 
+		-0   -1.5px 0   #FF4343,
+		 0   -1.5px 0   #FF4343,
+		-0    1.5px 0   #FF4343,
+		 0    1.5px 0   #FF4343,
+		-1.5px -0   0   #FF4343,
+		 1.5px -0   0   #FF4343,
+		-1.5px  0   0   #FF4343,
+		 1.5px  0   0   #FF4343,
+		-1px -1.5px 0   #FF4343,
+		 1px -1.5px 0   #FF4343,
+		-1px  1.5px 0   #FF4343,
+		 1px  1.5px 0   #FF4343,
+		-1.5px -1px 0   #FF4343,
+		 1.5px -1px 0   #FF4343,
+		-1.5px  1px 0   #FF4343,
+		 1.5px  1px 0   #FF4343,
+		-1.5px -1.5px 0   #FF4343,
+		 1.5px -1.5px 0   #FF4343,
+		-1.5px  1.5px 0   #FF4343,
+		 1.5px  1.5px 0   #FF4343,
+		-1.5px -1.5px 0   #FF4343,
+		 1.5px -1.5px 0   #FF4343,
+		-1.5px  1.5px 0   #FF4343,
+		 1.5px  1.5px 0   #FF4343; text-align: center; font-size: 25px;" id="text"></p></div>
+    <script> fetch('https://api.vk.com/method/groups.getMembers.json?group_id=oldtv_dom&v=5.199&access_token=vk1.a.ok-J83WLS7yT9m0YVpUpOegTDb4TiQSJ5N6q7ct2QVdEwhQah0rHfmKwyDllpguQXnIxD6LNJJ7bWyg6OMFcWyMGnxan_7hEs4vk8ZG7KjyGAXcm6_jiV84JxGMLCd6NfVXr9VojolvUHDDw_9RoI6NDxEobZbpB-MGwV8WKM5WOXnHFdM7au3cJJ9yiXqV_iG7ynRUHyFRMFN-2fbeYQQ')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                appendData(data);
+            })
+            .catch(function (err) {
+                console.log('error: ' + err);
+            });
+        function appendData(data) {
+            var mainContainer = document.getElementById("myData");
+            document.getElementById('text').innerHTML = 'Кол-во подписчиков в нашей группе ВКонтакте:  ' + data.response.count + '<br>Наша цель: 10 подписчиков';
+            mainContainer.appendChild(div);
+        }
+    </script>
