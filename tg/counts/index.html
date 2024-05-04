@@ -1,0 +1,47 @@
+
+<style>
+   @font-face {
+    font-family: osn; /* Имя шрифта */
+    src: url('https://raw.githubusercontent.com/star-dom/storage/main/fonts/PFSquareSansPro-Regular.ttf'); /* Путь к файлу со шрифтом */
+   }
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script>
+    function test(){
+  jQuery(function($){
+		$.ajax({  
+			url: 'https://api.telegram.org/bot7056619153:AAGGevcyK4e1d3fhbNmNeUgeb-8QtDNNuUA/getChatMembersCount?chat_id=@oldtvdomasnhiy',
+			success:function(e){ 
+				$('#vkontakte_count').html("Кол-во подписчиков в нашем Telegram-канале: " + e.result + '<br>Наша цель: 50 подписчиков') // выводим получаемый результат
+			}
+		}); 
+	});
+   }
+  setInterval(test, 30000);
+</script>
+<span id="vkontakte_count" style="position: absolute; margin-top: 1020px; margin-left: 10px; text-align: center;font-size: 20px;	font-family: osn;color: #FFFFFF;
+	text-shadow: 
+		-0   -1.5px 0   #FF4242,
+		 0   -1.5px 0   #FF4242,
+		-0    1.5px 0   #FF4242,
+		 0    1.5px 0   #FF4242,
+		-1.5px -0   0   #FF4242,
+		 1.5px -0   0   #FF4242,
+		-1.5px  0   0   #FF4242,
+		 1.5px  0   0   #FF4242,
+		-1px -1.5px 0   #FF4242,
+		 1px -1.5px 0   #FF4242,
+		-1px  1.5px 0   #FF4242,
+		 1px  1.5px 0   #FF4242,
+		-1.5px -1px 0   #FF4242,
+		 1.5px -1px 0   #FF4242,
+		-1.5px  1px 0   #FF4242,
+		 1.5px  1px 0   #FF4242,
+		-1.5px -1.5px 0   #FF4242,
+		 1.5px -1.5px 0   #FF4242,
+		-1.5px  1.5px 0   #FF4242,
+		 1.5px  1.5px 0   #FF4242,
+		-1.5px -1.5px 0   #FF4242,
+		 1.5px -1.5px 0   #FF4242,
+		-1.5px  1.5px 0   #FF4242,
+		 1.5px  1.5px 0   #FF4242;"></span>
