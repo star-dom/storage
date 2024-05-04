@@ -1,4 +1,3 @@
-
 <style>
    @font-face {
     font-family: osn; /* Имя шрифта */
@@ -7,46 +6,41 @@
 </style>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script>
-	jQuery(function($){
+	function test(){
+    jQuery(function($){
 		$.ajax({  
 			url: 'https://api.vk.com/method/groups.getMembers.json?group_id=oldtv_dom&v=5.199&access_token=vk1.a.ok-J83WLS7yT9m0YVpUpOegTDb4TiQSJ5N6q7ct2QVdEwhQah0rHfmKwyDllpguQXnIxD6LNJJ7bWyg6OMFcWyMGnxan_7hEs4vk8ZG7KjyGAXcm6_jiV84JxGMLCd6NfVXr9VojolvUHDDw_9RoI6NDxEobZbpB-MGwV8WKM5WOXnHFdM7au3cJJ9yiXqV_iG7ynRUHyFRMFN-2fbeYQQ', // вместо 65762432 указываем свой ID 
 			dataType: "jsonp", // тип получаемых данных
 			success:function(e){ 
 				$('#vkontakte_count').html("Кол-во подписчиков в нашей группе ВКонтакте: " + e.response.count + '<br>Наша цель: 10 подписчиков') // выводим получаемый результат
-			}  
+			}
 		}); 
 	});
-</script><div style="width: 1440px; height: 1080px; position: relative;"><span id="vkontakte_count" style="position: absolute; bottom: 0; margin-left: 10px; margin-top: -10px;text-align: center;font-size: 20px;	font-family: osn;color: #FFFFFF;
+   }
+  setInterval(test, 120000);
+</script><div style="width: 1440px; height: 1080px; position: relative;"><span id="vkontakte_count" style="position: absolute; margin-top: 1020px; margin-left: 10px; text-align: center;font-size: 20px;	font-family: osn;color: #FFFFFF;
 	text-shadow: 
-		-0   -3px 0   #FF4242,
-		 0   -3px 0   #FF4242,
-		-0    3px 0   #FF4242,
-		 0    3px 0   #FF4242,
-		-3px -0   0   #FF4242,
-		 3px -0   0   #FF4242,
-		-3px  0   0   #FF4242,
-		 3px  0   0   #FF4242,
-		-1px -3px 0   #FF4242,
-		 1px -3px 0   #FF4242,
-		-1px  3px 0   #FF4242,
-		 1px  3px 0   #FF4242,
-		-3px -1px 0   #FF4242,
-		 3px -1px 0   #FF4242,
-		-3px  1px 0   #FF4242,
-		 3px  1px 0   #FF4242,
-		-2px -3px 0   #FF4242,
-		 2px -3px 0   #FF4242,
-		-2px  3px 0   #FF4242,
-		 2px  3px 0   #FF4242,
-		-3px -2px 0   #FF4242,
-		 3px -2px 0   #FF4242,
-		-3px  2px 0   #FF4242,
-		 3px  2px 0   #FF4242,
-		-3px -3px 0   #FF4242,
-		 3px -3px 0   #FF4242,
-		-3px  3px 0   #FF4242,
-		 3px  3px 0   #FF4242,
-		-3px -3px 0   #FF4242,
-		 3px -3px 0   #FF4242,
-		-3px  3px 0   #FF4242,
-		 3px  3px 0   #FF4242;"></span></div>
+		-0   -1.5px 0   #FF4242,
+		 0   -1.5px 0   #FF4242,
+		-0    1.5px 0   #FF4242,
+		 0    1.5px 0   #FF4242,
+		-1.5px -0   0   #FF4242,
+		 1.5px -0   0   #FF4242,
+		-1.5px  0   0   #FF4242,
+		 1.5px  0   0   #FF4242,
+		-1px -1.5px 0   #FF4242,
+		 1px -1.5px 0   #FF4242,
+		-1px  1.5px 0   #FF4242,
+		 1px  1.5px 0   #FF4242,
+		-1.5px -1px 0   #FF4242,
+		 1.5px -1px 0   #FF4242,
+		-1.5px  1px 0   #FF4242,
+		 1.5px  1px 0   #FF4242,
+		-1.5px -1.5px 0   #FF4242,
+		 1.5px -1.5px 0   #FF4242,
+		-1.5px  1.5px 0   #FF4242,
+		 1.5px  1.5px 0   #FF4242,
+		-1.5px -1.5px 0   #FF4242,
+		 1.5px -1.5px 0   #FF4242,
+		-1.5px  1.5px 0   #FF4242,
+		 1.5px  1.5px 0   #FF4242;"></span></div>
