@@ -1,51 +1,52 @@
+
 <style>
    @font-face {
     font-family: osn; /* Имя шрифта */
     src: url('https://raw.githubusercontent.com/star-dom/storage/main/fonts/PFSquareSansPro-Regular.ttf'); /* Путь к файлу со шрифтом */
    }
-  p {
-    font-family: osn;
-  }
 </style>
-<div style="width: 1440px; height: 1080px; position: relative;" id="myData"><p style="position: absolute; bottom: 0; margin-left: 20px; color: #FFFFFF;
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script>
+	jQuery(function($){
+		$.ajax({  
+			url: 'https://api.vk.com/method/groups.getMembers.json?group_id=oldtv_dom&v=5.199&access_token=vk1.a.ok-J83WLS7yT9m0YVpUpOegTDb4TiQSJ5N6q7ct2QVdEwhQah0rHfmKwyDllpguQXnIxD6LNJJ7bWyg6OMFcWyMGnxan_7hEs4vk8ZG7KjyGAXcm6_jiV84JxGMLCd6NfVXr9VojolvUHDDw_9RoI6NDxEobZbpB-MGwV8WKM5WOXnHFdM7au3cJJ9yiXqV_iG7ynRUHyFRMFN-2fbeYQQ', // вместо 65762432 указываем свой ID 
+			dataType: "jsonp", // тип получаемых данных
+			success:function(e){ 
+				$('#vkontakte_count').html("Кол-во подписчиков в нашей группе ВКонтакте: " + e.response.count + '<br>Наша цель: 10 подписчиков') // выводим получаемый результат
+			}  
+		}); 
+	});
+</script><div style="width: 1440px; height: 1080px; position: relative;"><span id="vkontakte_count" style="position: absolute; bottom: 0; margin-left: 10px; margin-top: -10px;text-align: center;font-size: 20px;	font-family: osn;color: #FFFFFF;
 	text-shadow: 
-		-0   -1.5px 0   #FF4343,
-		 0   -1.5px 0   #FF4343,
-		-0    1.5px 0   #FF4343,
-		 0    1.5px 0   #FF4343,
-		-1.5px -0   0   #FF4343,
-		 1.5px -0   0   #FF4343,
-		-1.5px  0   0   #FF4343,
-		 1.5px  0   0   #FF4343,
-		-1px -1.5px 0   #FF4343,
-		 1px -1.5px 0   #FF4343,
-		-1px  1.5px 0   #FF4343,
-		 1px  1.5px 0   #FF4343,
-		-1.5px -1px 0   #FF4343,
-		 1.5px -1px 0   #FF4343,
-		-1.5px  1px 0   #FF4343,
-		 1.5px  1px 0   #FF4343,
-		-1.5px -1.5px 0   #FF4343,
-		 1.5px -1.5px 0   #FF4343,
-		-1.5px  1.5px 0   #FF4343,
-		 1.5px  1.5px 0   #FF4343,
-		-1.5px -1.5px 0   #FF4343,
-		 1.5px -1.5px 0   #FF4343,
-		-1.5px  1.5px 0   #FF4343,
-		 1.5px  1.5px 0   #FF4343; text-align: center; font-size: 25px;" id="text"></p></div>
-    <script> fetch('https://api.vk.com/method/groups.getMembers.json?group_id=oldtv_dom&v=5.199&access_token=vk1.a.ok-J83WLS7yT9m0YVpUpOegTDb4TiQSJ5N6q7ct2QVdEwhQah0rHfmKwyDllpguQXnIxD6LNJJ7bWyg6OMFcWyMGnxan_7hEs4vk8ZG7KjyGAXcm6_jiV84JxGMLCd6NfVXr9VojolvUHDDw_9RoI6NDxEobZbpB-MGwV8WKM5WOXnHFdM7au3cJJ9yiXqV_iG7ynRUHyFRMFN-2fbeYQQ')
-            .then(function (response) {
-                return response.json();
-            })
-            .then(function (data) {
-                appendData(data);
-            })
-            .catch(function (err) {
-                console.log('error: ' + err);
-            });
-        function appendData(data) {
-            var mainContainer = document.getElementById("myData");
-            document.getElementById('text').innerHTML = 'Кол-во подписчиков в нашей группе ВКонтакте:  ' + data.response.count + '<br>Наша цель: 10 подписчиков';
-            mainContainer.appendChild(div);
-        }
-    </script>
+		-0   -3px 0   #FF4242,
+		 0   -3px 0   #FF4242,
+		-0    3px 0   #FF4242,
+		 0    3px 0   #FF4242,
+		-3px -0   0   #FF4242,
+		 3px -0   0   #FF4242,
+		-3px  0   0   #FF4242,
+		 3px  0   0   #FF4242,
+		-1px -3px 0   #FF4242,
+		 1px -3px 0   #FF4242,
+		-1px  3px 0   #FF4242,
+		 1px  3px 0   #FF4242,
+		-3px -1px 0   #FF4242,
+		 3px -1px 0   #FF4242,
+		-3px  1px 0   #FF4242,
+		 3px  1px 0   #FF4242,
+		-2px -3px 0   #FF4242,
+		 2px -3px 0   #FF4242,
+		-2px  3px 0   #FF4242,
+		 2px  3px 0   #FF4242,
+		-3px -2px 0   #FF4242,
+		 3px -2px 0   #FF4242,
+		-3px  2px 0   #FF4242,
+		 3px  2px 0   #FF4242,
+		-3px -3px 0   #FF4242,
+		 3px -3px 0   #FF4242,
+		-3px  3px 0   #FF4242,
+		 3px  3px 0   #FF4242,
+		-3px -3px 0   #FF4242,
+		 3px -3px 0   #FF4242,
+		-3px  3px 0   #FF4242,
+		 3px  3px 0   #FF4242;"></span></div>
