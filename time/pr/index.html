@@ -1,0 +1,54 @@
+<html>
+<head>
+  <title>ic-time-programma</title>
+  <style>
+   @font-face {
+    font-family: osn1; /* Имя шрифта */
+    src: url('https://raw.githubusercontent.com/star-dom/storage/hours/ObjectSans-HeavySlanted.ttf'); /* Путь к файлу со шрифтом */
+   }
+       @font-face {
+    font-family: osn2; /* Имя шрифта */
+    src: url('https://raw.githubusercontent.com/star-dom/storage/hours/ObjectSans-Slanted.ttf'); /* Путь к файлу со шрифтом */
+   }
+    h1 {
+      font-family: osn1;
+    }
+    h2, p {
+      font-family: osn2;
+    }
+</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.14.1/xlsx.full.min.js"></script>
+</head>
+<body>
+  <h1 style="text-align: center; margin: 0 auto;"><span id="title"></span></h1>
+  <h2><span id="time1"></span> - <span id="title1"></span></h2>
+  <h2><span id="time2"></span> - <span id="title2"></span></h2>
+  <h2><span id="time3"></span> - <span id="title3"></span></h2>
+
+  <script>
+    var file = "https://raw.githubusercontent.com/star-dom/storage/main/peredachi.xlsx";
+    var req = new XMLHttpRequest();
+    req.open("GET", file, true);
+    req.responseType = "arraybuffer";
+
+    req.onload = function(e) {
+      var data = new Uint8Array(req.response);
+      var workbook = XLSX.read(data, {type: "array"});
+
+      var sheetName = workbook.SheetNames[0];
+      var sheet = workbook.Sheets[sheetName];
+
+     document.getElementById("title").innerText = sheet["A6"].v;
+      document.getElementById("time1").innerText = sheet["A2"].v;
+      document.getElementById("title1").innerText = sheet["B2"].v;
+       document.getElementById("time2").innerText = sheet["A3"].v;
+      document.getElementById("title2").innerText = sheet["B3"].v;
+      document.getElementById("time3").innerText = sheet["A4"].v;
+      document.getElementById("title3").innerText = sheet["B4"].v;
+    
+    };
+
+    req.send();
+  </script>
+</body>
+</html>
