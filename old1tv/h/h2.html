@@ -1,0 +1,73 @@
+<style>
+   @font-face {
+    font-family: osn; /* Имя шрифта */
+    src: url('https://raw.githubusercontent.com/star-dom/storage/hours/old1tv/h/shrift.ttf'); /* Путь к файлу со шрифтом */
+   }
+video {
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+.video-wrapper {
+  width: 1920px;
+  height: 1080px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.time{
+  position: relative;
+}
+</style>
+<div style="width: 960px; height: 720px;" allow="autoplay" id="timer"><div class="time"><div style="top: 0; left: 0;"><image src="https://raw.githubusercontent.com/star-dom/storage/hours/old1tv/h/h_hours.png" style="width: 920px; height: 920PX; position: relative; position: absolute;" id="hours"><image src="https://raw.githubusercontent.com/star-dom/storage/hours/old1tv/h/h_min.png" style="width: 920px; height: 920PX; position: relative; position: absolute;" id="minutes"><image src="https://raw.githubusercontent.com/star-dom/storage/hours/old1tv/h/h_sec.png" style="width: 920px; height: 920PX; position: absolute; position: relative;" id="seconds"></div></div></div>
+  <script>
+  function checkTime(i) {
+  if (i < 10) {
+    i = "0" + i;
+  }
+  return i;
+}
+
+function timeBegan() {
+  var today = new Date();
+  var h = today.getHours();
+  var m = today.getMinutes();
+  var s = today.getSeconds();
+
+  m = checkTime(m);
+  s = checkTime(s);
+  t = setTimeout(function() {
+    timeBegan()
+  }, 500);
+}
+timeBegan();
+let hours = document.getElementById('hours');
+
+// Вращаем изображение на 6 градусов
+setInterval(hours1, 1);
+function hours1() {
+  hours.style.transform = `rotate(${30 * (new Date().getHours())}deg`;
+}
+
+let minutes = document.getElementById('minutes');
+
+// Вращаем изображение на 6 градусов
+setInterval(minutes1, 1);
+function minutes1() {
+minutes.style.transform = `rotate(${6 * new Date().getMinutes()}deg`;
+}
+let seconds = document.getElementById('seconds');
+
+// Вращаем изображение на 6 градусов
+setInterval(seconds1, 1);
+ function seconds1() {
+seconds.style.transform = `rotate(${6 * new Date().getSeconds()}deg`;  
+}
+  </script>
