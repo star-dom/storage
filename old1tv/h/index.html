@@ -1,0 +1,100 @@
+
+<style>
+video {
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+.video-wrapper {
+  width: 960px;
+  height: 720px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.time{
+  position: relative;
+}
+</style>
+<div style="width: 960px; height: 720px; position: relative;" allow="autoplay" id="timer">
+  <audio src="https://raw.githubusercontent.com/star-dom/storage/hours/old1tv/h/h_utr.mp3" loop id="muzyka" type="audio/mpeg"></audio><div class="video-wrapper"><video src="https://raw.githubusercontent.com/star-dom/storage/hours/old1tv/h/h_fon.mp4" autoplay loop muted style="width: 960px; height: 720px;" id="fon"></video><image src="https://raw.githubusercontent.com/star-dom/storage/hours/old1tv/h/h_c.png" style="width: 960px; height: 720PX; position: absolute; position: relative;"><div style="width: 960px; height: 720px; position: absolute; left: -360px;" allow="autoplay" id="timer"><div class="time"><div style="left: 0; top: 0;"><image src="https://raw.githubusercontent.com/star-dom/storage/hours/old1tv/h/h_hours.png" style="width: 720px; height: 720PX; position: relative; position: absolute;" id="hours"><image src="https://raw.githubusercontent.com/star-dom/storage/hours/old1tv/h/h_min.png" style="width: 720px; height: 720PX; position: relative; position: absolute;" id="minutes"><image src="https://raw.githubusercontent.com/star-dom/storage/hours/old1tv/h/h_sec.png" style="width: 720px; height: 720PX; position: relative; position: absolute;" id="seconds"></div></div></div>
+    <script>
+       function checkTime(i) {
+  if (i < 10) {
+    i = "0" + i;
+  }
+  return i;
+}
+
+function timeBegan() {
+  var today = new Date();
+  var h = today.getHours();
+  var m = today.getMinutes();
+  var s = today.getSeconds();
+
+  m = checkTime(m);
+  s = checkTime(s);
+  t = setTimeout(function() {
+    timeBegan()
+  }, 500);
+}
+timeBegan();
+let hours = document.getElementById('hours');
+
+// Вращаем изображение на 6 градусов
+setInterval(hours1, 1);
+function hours1() {
+  hours.style.transform = `rotate(${30 * (new Date().getHours())}deg`;
+}
+
+let minutes = document.getElementById('minutes');
+
+// Вращаем изображение на 6 градусов
+setInterval(minutes1, 1);
+function minutes1() {
+minutes.style.transform = `rotate(${6 * new Date().getMinutes()}deg`;
+}
+let seconds = document.getElementById('seconds');
+
+// Вращаем изображение на 6 градусов
+setInterval(seconds1, 1);
+ function seconds1() {
+seconds.style.transform = `rotate(${6 * new Date().getSeconds()}deg`;  
+}
+      function checkMuzyka() {
+  if (new Date().getSeconds() === 0) {
+     document.getElementById('muzyka').play();
+  }
+}
+
+setInterval(checkMuzyka, 1); // Вызывать функцию checkSeconds каждую секундуs
+      function changeMusicAfter16Hours() {
+  var currentTime = new Date();
+  var currentHour = currentTime.getHours();
+  var musicSrc = document.getElementById("muzyka").src;
+
+  if (currentHour >= 16 && musicSrc !== "https://raw.githubusercontent.com/star-dom/storage/hours/old1tv/h/h_vech.mp3") {
+    document.getElementById("muzyka").src = "https://raw.githubusercontent.com/star-dom/storage/hours/old1tv/h/h_vech.mp3";
+  }
+}
+
+setInterval(changeMusicAfter16Hours, 1); // проверяем каждый час
+      function changeMusicAfter4Hours() {
+  var currentTime = new Date();
+  var currentHour = currentTime.getHours();
+  var musicSrc = document.getElementById("muzyka").src;
+
+  if (currentHour >= 4 && musicSrc !== "https://raw.githubusercontent.com/star-dom/storage/hours/old1tv/h/h_utr.mp3") {
+    document.getElementById("muzyka").src = "https://raw.githubusercontent.com/star-dom/storage/hours/old1tv/h/h_utr.mp3";
+  }
+}
+
+setInterval(changeMusicAfter4Hours, 1);
+</script>
