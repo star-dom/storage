@@ -75,26 +75,11 @@ seconds.style.transform = `rotate(${6 * new Date().getSeconds()}deg`;
 }
 
 setInterval(checkMuzyka, 1); // Вызывать функцию checkSeconds каждую секундуs
-      function changeMusicAfter16Hours() {
-  var currentTime = new Date();
-  var currentHour = currentTime.getHours();
-  var musicSrc = document.getElementById("muzyka").src;
-
-  if (currentHour >= 16) {
-    document.getElementById("muzyka").src = "https://raw.githubusercontent.com/star-dom/storage/hours/old1tv/h/h_vech.mp3";
-  }
+      if (new Date().getHours() >= 16) {
+  // Если прошло 16 часов или больше, меняем значение src
+  document.getElementById('muzyka').src = 'https://raw.githubusercontent.com/star-dom/storage/hours/old1tv/h/h_vech.mp3';
+} else if (new Date().getHours() >= 4) {
+  // Если прошло больше 4 часов, но меньше 16, возвращаем прежнее значение src
+  document.getElementById('muzyka').src = 'https://raw.githubusercontent.com/star-dom/storage/hours/old1tv/h/h_utr.mp3';
 }
-
-setInterval(changeMusicAfter16Hours, 1); // проверяем каждый час
-      function changeMusicAfter4Hours() {
-  var currentTime = new Date();
-  var currentHour = currentTime.getHours();
-  var musicSrc = document.getElementById("muzyka").src;
-
-  if (currentHour >= 4) {
-    document.getElementById("muzyka").src = "https://raw.githubusercontent.com/star-dom/storage/hours/old1tv/h/h_utr.mp3";
-  }
-}
-
-setInterval(changeMusicAfter4Hours, 1);
 </script>
