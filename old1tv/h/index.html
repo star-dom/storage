@@ -1,5 +1,9 @@
-
 <style>
+  @font-face {
+    font-family: osn;
+    src:
+      url('https://raw.githubusercontent.com/star-dom/storage/hours/old1tv/h/shrift.ttf') format("ttf"), url('https://raw.githubusercontent.com/star-dom/storage/hours/old1tv/h/shrift.woff') format("woff"),
+  }
 video {
   object-fit: cover;
   position: absolute;
@@ -24,7 +28,7 @@ video {
 }
 </style>
 <div style="width: 960px; height: 720px; position: relative;" allow="autoplay" id="timer">
-  <audio src="https://raw.githubusercontent.com/star-dom/storage/hours/old1tv/h/h_utr.mp3" loop id="muzyka" type="audio/mpeg"></audio><div class="video-wrapper"><video src="https://raw.githubusercontent.com/star-dom/storage/hours/old1tv/h/0527.mp4" autoplay loop muted style="width: 960px; height: 720px;" id="fon"></video><image src="https://raw.githubusercontent.com/star-dom/storage/hours/old1tv/h/h_c.png" style="width: 960px; height: 720PX; position: absolute; position: relative;"><div style="width: 960px; height: 720px; position: absolute; left: -360px;" allow="autoplay" id="timer"><div class="time"><div style="left: 0; top: 0;"><image src="https://raw.githubusercontent.com/star-dom/storage/hours/old1tv/h/h_hours.png" style="width: 720px; height: 720PX; position: relative; position: absolute;" id="hours"><image src="https://raw.githubusercontent.com/star-dom/storage/hours/old1tv/h/h_min.png" style="width: 720px; height: 720PX; position: relative; position: absolute;" id="minutes"><image src="https://raw.githubusercontent.com/star-dom/storage/hours/old1tv/h/h_sec.png" style="width: 720px; height: 720PX; position: relative; position: absolute;" id="seconds"></div></div></div>
+  <audio src="https://raw.githubusercontent.com/star-dom/storage/hours/old1tv/h/h_utr.mp3" loop id="muzyka" type="audio/mpeg"></audio><div class="video-wrapper"><video src="https://raw.githubusercontent.com/star-dom/storage/hours/old1tv/h/0527.mp4" autoplay loop muted style="width: 960px; height: 720px;" id="fon"></video><image src="https://raw.githubusercontent.com/star-dom/storage/hours/old1tv/h/h_c.png" style="width: 960px; height: 720PX; position: absolute; position: relative;"><div style="width: 960px; height: 720px; position: absolute; left: -360px;" allow="autoplay" id="timer"><div class="time"><div style="left: 0; top: 0;"><image src="https://raw.githubusercontent.com/star-dom/storage/hours/old1tv/h/h_hours.png" style="width: 720px; height: 720PX; position: relative; position: absolute;" id="hours"><image src="https://raw.githubusercontent.com/star-dom/storage/hours/old1tv/h/h_min.png" style="width: 720px; height: 720PX; position: relative; position: absolute;" id="minutes"><image src="https://raw.githubusercontent.com/star-dom/storage/hours/old1tv/h/h_sec.png" style="width: 720px; height: 720PX; position: relative; position: absolute;" id="seconds"></div></div><div style="width: 960px; height: 720px; position: relative;" allow="autoplay" id="timer"><p style="font-family: osn; color: #fff; margin-left: 715px; margin-top: 90px; font-size: 35px;" id="sec-tek"></p><p style="font-family: osn; color: #fff; margin-left: 715px; margin-top: 460px; font-size: 35px;" id="sec-ost"></p></div></div>
     <script>
        function checkTime(i) {
   if (i < 10) {
@@ -82,4 +86,12 @@ setInterval(checkMuzyka, 1); // Вызывать функцию checkSeconds к�
   // Если прошло больше 4 часов, но меньше 16, возвращаем прежнее значение src
   document.getElementById('muzyka').src = 'https://raw.githubusercontent.com/star-dom/storage/hours/old1tv/h/h_utr.mp3';
 }
+      function sectek() {
+        document.getElementById('sec-tek').innerText = checkTime(new Date().getSeconds());
+        document.getElementById('sec-ost').innerText = checkTime(60 - (new Date().getSeconds()));
+        if (document.getElementById('sec-ost').innerText == 60) {
+          document.getElementById('sec-ost').innerText = "00";
+        }
+      }
+    setInterval(sectek, 1);  
 </script>
