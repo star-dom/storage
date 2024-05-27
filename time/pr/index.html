@@ -1,3 +1,4 @@
+
 <html>
 <head>
   <title>ic-time-programma</title>
@@ -17,17 +18,17 @@
       font-family: osn2;
     }
 </style>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.14.1/xlsx.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.6/xlsx.full.min.js"></script>
 </head>
 <body>
   <h1 style="text-align: center; margin: 0 auto;"><span id="title"></span></h1>
   <h2><span id="time1"></span> - <span id="title1"></span></h2>
   <h2><span id="time2"></span> - <span id="title2"></span></h2>
   <h2><span id="time3"></span> - <span id="title3"></span></h2>
-
   <script>
-    var file = "https://raw.githubusercontent.com/star-dom/storage/main/peredachi.xlsx";
-    var req = new XMLHttpRequest();
+    function tabl() {
+var file = "https://raw.githubusercontent.com/star-dom/storage/main/peredachi.xlsx";
+var req = new XMLHttpRequest();
     req.open("GET", file, true);
     req.responseType = "arraybuffer";
 
@@ -38,7 +39,8 @@
       var sheetName = workbook.SheetNames[0];
       var sheet = workbook.Sheets[sheetName];
 
-     document.getElementById("title").innerText = sheet["A6"].v;
+
+     document.getElementById("title").innerText = sheet["E1"].v;
       document.getElementById("time1").innerText = sheet["A2"].v;
       document.getElementById("title1").innerText = sheet["B2"].v;
        document.getElementById("time2").innerText = sheet["A3"].v;
@@ -49,6 +51,8 @@
     };
 
     req.send();
+    };
+    setInterval(tabl, 1000)
   </script>
 </body>
 </html>
