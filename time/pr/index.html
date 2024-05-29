@@ -11,7 +11,7 @@
     font-family: osn2; /* Имя шрифта */
     src: url('https://raw.githubusercontent.com/star-dom/storage/hours/ObjectSans-Slanted.ttf'); /* Путь к файлу со шрифтом */
    }
-    body {
+    html, body {
       margin: 0;
       padding: 0;
     }
@@ -21,21 +21,53 @@
     h2, p {
       font-family: osn2;
     }
+    #gl {
+  position: relative;
+}
+    h2 {
+      color: #fff;
+    }
 </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.6/xlsx.full.min.js"></script>
 </head>
 <body>
-  <div style="width: 100%; background: url('https://star-dom.github.io/storage/time/pr/time_gl.jpg'); background-size: 100%;" id="gl"><a href="https://sites.google.com/view/timechannel"><div style="float: right; width: 100px; height: 44.5px; background: url('https://star-dom.github.io/storage/time/pr/time-logo.png'); background-size: 100%; margin-right: 100px;
-  margin-left: auto; margin-top: 50px;" id="logo"></div></a></div>
-  <h1 style="text-align: center; margin: 0 auto; margin-top: -70px; color: #fff;"><span id="title"></span></h1>
-  <h2 style="margin-top: 50px;"><span id="time1"></span> - <span id="title1"></span></h2>
-  <h2><span id="time2"></span> - <span id="title2"></span></h2>
-  <h2><span id="time3"></span> - <span id="title3"></span></h2>
+    <div style="background: #000; width: 100%; position: absolute; bottom: 0;" id="gl">
+     <div style="width: 100%; background: url('https://star-dom.github.io/storage/time/pr/time_gl.jpg'); background-size: 100%; text-align: right; position: absolute;" id="gl-in"><a href="https://sites.google.com/view/timechannel"><div style="background: url('https://star-dom.github.io/storage/time/pr/time-logo.png'); background-size: 100%; width: 100px; height: 44.5px; margin: 0 auto; margin-top: -100px;"></div></a>
+  <h1 style="text-align: right; margin-right: 100px; margin-top: 65px;">Програма передач на<br><span id="title-pr"></span></h1>
+  <div style="width: 100%; position: absolute; bottom: 0;" id="gl1"><h2 style="margin-right: 100px;"><span id="time1"></span> - <span id="title1"></span></h2>
+  <h2 style="margin-right: 100px;"><span id="time2"></span> - <span id="title2"></span></h2>
+  <h2 style="margin-right: 100px;"><span id="time3"></span> - <span id="title3"></span></h2></div>
+  </div></div>
   <script>
-const glWidth = document.getElementById('gl').offsetWidth; // получаем ширину блока #gl
-const resultHeight = (glWidth / 640) * 213; // делим ширину на 640 и умножаем на 213
-document.getElementById('gl').style.height = resultHeight + 'px'; // устанавливаем полученную высоту блока #gl
-    
+// Получаем элемент с id "gl"
+function str() {
+  const glWidth = document.getElementById('gl-in').offsetWidth;
+const resultHeight = (glWidth / 640) * 213;
+document.getElementById('gl-in').style.height = resultHeight + 'px';
+
+// Получаем высоту блока #gl-in
+const glInHeight = document.getElementById('gl-in').offsetHeight;
+// Вычисляем половину высоты блока #gl-in
+const halfGlInHeight = glInHeight / 2;
+// Вычитаем половину высоты из высоты блока #gl-in
+const marginTopValue = - (glInHeight - halfGlInHeight);
+// Присваиваем полученное значение в margin-top блока #gl-in
+document.getElementById('gl-in').style.marginTop = marginTopValue + 'px';
+
+  
+var pageHeight = window.innerHeight;
+var halfHeight = pageHeight / 2;
+var block = document.getElementById('gl');
+block.style.height = halfHeight + 'px';
+  
+  var pageHeight1 = window.innerHeight;
+var halfHeight1 = pageHeight / 2;
+var block1 = document.getElementById('gl1');
+block.style.height = halfHeight1 + 'px';
+}
+    setInterval(str, 1);
+
+
     function tabl() {
 var file = "https://raw.githubusercontent.com/star-dom/storage/main/peredachi.xlsx";
 var req = new XMLHttpRequest();
@@ -50,7 +82,7 @@ var req = new XMLHttpRequest();
       var sheet = workbook.Sheets[sheetName];
 
 
-     document.getElementById("title").innerText = sheet["E1"].v;
+     document.getElementById("title-pr").innerText = sheet["E1"].v;
       document.getElementById("time1").innerText = sheet["A2"].v;
       document.getElementById("title1").innerText = sheet["B2"].v;
        document.getElementById("time2").innerText = sheet["A3"].v;
